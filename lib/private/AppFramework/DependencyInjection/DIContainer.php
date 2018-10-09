@@ -43,7 +43,6 @@ use OC\AppFramework\Utility\SimpleContainer;
 use OC\Core\Middleware\AccountModuleMiddleware;
 use OC\Core\Middleware\TwoFactorMiddleware;
 use OCP\App\IServiceLoader;
-use OCP\AppFramework\IApi;
 use OCP\AppFramework\IAppContainer;
 use OCP\Files\Mount\IMountManager;
 use OCP\IDateTimeFormatter;
@@ -399,14 +398,6 @@ class DIContainer extends SimpleContainer implements IAppContainer {
 			$dispatcher->registerMiddleware($c['SessionMiddleware']);
 			return $dispatcher;
 		});
-	}
-
-	/**
-	 * @deprecated implements only deprecated methods
-	 * @return IApi
-	 */
-	public function getCoreApi() {
-		return $this->query('API');
 	}
 
 	/**
